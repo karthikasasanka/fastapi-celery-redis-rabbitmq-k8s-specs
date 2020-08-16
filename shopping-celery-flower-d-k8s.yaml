@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-celery-flower-deployment
+  labels:
+    app: shopping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: celery-flower-pod
+      app: shopping
+  template:
+    metadata:
+      name: shopping-celery-flower-pod
+      labels:
+        type: celery-flower-pod
+        app: shopping
+    spec:
+      containers:
+        - name: shopping-celery-flower
+          image: karthikasasanka/shopping-celery-flower:v1
+          env:
+            - name: REDIS_HOST
+              value: "shopping-redis"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: REDIS_CELERY_DB_INDEX
+              value: "10"
+            - name: REDIS_STORE_DB_INDEX
+              value: "0"
+            - name: RABBITMQ_HOST
+              value: "shopping-rabbitmq"
+            - name: RABBITMQ_USERNAME
+              value: "guest"
+            - name: RABBITMQ_PASSWORD
+              value: "guest"
+            - name: RABBITMQ_PORT
+              value: "5672"
+          ports:
+            - containerPort: 5555

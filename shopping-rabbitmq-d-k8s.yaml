@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-rabbitmq-deployment
+  labels:
+    app: shopping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: rabbitmq-pod
+      app: shopping
+  template:
+    metadata:
+      name: shopping-rabbitmq-pod
+      labels:
+        type: rabbitmq-pod
+        app: shopping
+    spec:
+      containers:
+        - name: shopping-rabbitmq
+          image: rabbitmq
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: "guest"
+            - name: RABBITMQ_DEFAULT_PASS
+              value: "guest"
+          ports:
+            - containerPort: 5672

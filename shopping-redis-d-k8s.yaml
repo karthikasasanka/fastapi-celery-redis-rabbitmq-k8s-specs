@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-redis-deployment
+  labels:
+    app: shopping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: redis-pod
+      app: shopping
+  template:
+    metadata:
+      name: shopping-redis-pod
+      labels:
+        type: redis-pod
+        app: shopping
+    spec:
+      containers:
+        - name: shopping-redis
+          image: redis
+          ports:
+            - containerPort: 6379
