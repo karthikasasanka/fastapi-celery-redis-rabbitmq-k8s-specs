@@ -1,4 +1,4 @@
-# shopping-api-k8s-specs
+# k8s spec files
 
 <br>
 
