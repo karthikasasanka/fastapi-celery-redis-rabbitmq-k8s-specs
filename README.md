@@ -10,7 +10,7 @@ Kubernetes spec files for [karthikasasanka/fastapi-celery-redis-rabbitmq](https:
 
 ```bash
 git clone https://github.com/karthikasasanka/fastapi-celery-redis-rabbitmq-k8s-specs
-cd shopping-api-k8s-specs
+cd fastapi-celery-redis-rabbitmq-k8s-specs
 kubectl create -f .
 ```
 
