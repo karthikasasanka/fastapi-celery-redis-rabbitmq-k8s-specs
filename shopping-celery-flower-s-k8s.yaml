@@ -6,7 +6,7 @@ metadata:
     type: shopping-celery-flower-service
     app: shopping
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 5555
       targetPort: 5555
