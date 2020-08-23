@@ -14,17 +14,23 @@ cd fastapi-celery-redis-rabbitmq-k8s-specs
 kubectl create -f .
 ```
 
+### Get minikube ip address
+
+```
+minikube ip
+```
+
 This will expose fastapi application on 5000 and celery flower on 5555
 
-swagger docs - `http://localhost:5000/`
+swagger docs - `http://<minikube ip>:5000/`
 
-redoc - `http://localhost:5000/redoc`
+redoc - `http://<minikube ip>:5000/redoc`
 
-celery flower - `http://localhost:5555`
+celery flower - `http://<minikube ip>:5555`
 
 ### Prerequisite
 
-  * working setup of kubernetes and kubectl(refer: [Kubernetes](https://kubernetes.io/docs/tasks/tools/))
+  * working setup of kubernetes cluster with minikube and kubectl(refer: [Kubernetes](https://kubernetes.io/docs/tasks/tools/))
 
 
 ### Cleanup
